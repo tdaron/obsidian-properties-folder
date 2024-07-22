@@ -5,11 +5,16 @@ export default class MyPlugin extends Plugin {
 
 	async onload() {
 		this.registerEvent(this.app.workspace.on('file-open', () => {
-			console.log("folding..")
 			//doing an eval otherwise it don't work. 
 			//I don't know why
-			eval("this.app.commands.executeCommandById('editor:toggle-fold-properties')")
-    }));
+			if (document.querySelectorAll(".metadata-container .is-collapsed").length == 0) {
+				console.log("folding on file open..")
+				eval("this.app.commands.executeCommandById('editor:toggle-fold-properties')")
+
+			}
+
+
+		}));
 
 	}
 

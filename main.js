@@ -31,11 +31,12 @@ var import_obsidian = require("obsidian");
 var MyPlugin = class extends import_obsidian.Plugin {
   async onload() {
     this.registerEvent(this.app.workspace.on("file-open", () => {
-      console.log("folding..");
-      eval("this.app.commands.executeCommandById('editor:toggle-fold-properties')");
+      if (document.querySelectorAll(".metadata-container .is-collapsed").length == 0) {
+        console.log("folding on file open..");
+        eval("this.app.commands.executeCommandById('editor:toggle-fold-properties')");
+      }
     }));
   }
   onunload() {
   }
 };
-//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsibWFpbi50cyJdLAogICJzb3VyY2VzQ29udGVudCI6IFsiaW1wb3J0IHsgQXBwLCBFZGl0b3IsIE1hcmtkb3duVmlldywgTW9kYWwsIE5vdGljZSwgUGx1Z2luLCBQbHVnaW5TZXR0aW5nVGFiLCBTZXR0aW5nIH0gZnJvbSAnb2JzaWRpYW4nO1xuXG5cbmV4cG9ydCBkZWZhdWx0IGNsYXNzIE15UGx1Z2luIGV4dGVuZHMgUGx1Z2luIHtcblxuXHRhc3luYyBvbmxvYWQoKSB7XG5cdFx0dGhpcy5yZWdpc3RlckV2ZW50KHRoaXMuYXBwLndvcmtzcGFjZS5vbignZmlsZS1vcGVuJywgKCkgPT4ge1xuXHRcdFx0Y29uc29sZS5sb2coXCJmb2xkaW5nLi5cIilcblx0XHRcdC8vZG9pbmcgYW4gZXZhbCBvdGhlcndpc2UgaXQgZG9uJ3Qgd29yay4gXG5cdFx0XHQvL0kgZG9uJ3Qga25vdyB3aHlcblx0XHRcdGV2YWwoXCJ0aGlzLmFwcC5jb21tYW5kcy5leGVjdXRlQ29tbWFuZEJ5SWQoJ2VkaXRvcjp0b2dnbGUtZm9sZC1wcm9wZXJ0aWVzJylcIilcbiAgICB9KSk7XG5cblx0fVxuXG5cdG9udW5sb2FkKCkge1xuXG5cdH1cblxufVxuXG4iXSwKICAibWFwcGluZ3MiOiAiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsc0JBQTRGO0FBRzVGLElBQXFCLFdBQXJCLGNBQXNDLHVCQUFPO0FBQUEsRUFFNUMsTUFBTSxTQUFTO0FBQ2QsU0FBSyxjQUFjLEtBQUssSUFBSSxVQUFVLEdBQUcsYUFBYSxNQUFNO0FBQzNELGNBQVEsSUFBSSxXQUFXO0FBR3ZCLFdBQUssdUVBQXVFO0FBQUEsSUFDM0UsQ0FBQyxDQUFDO0FBQUEsRUFFTDtBQUFBLEVBRUEsV0FBVztBQUFBLEVBRVg7QUFFRDsiLAogICJuYW1lcyI6IFtdCn0K
