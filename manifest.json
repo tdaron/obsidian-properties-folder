@@ -1,0 +1,10 @@
+{
+	"id": "properties-fold",
+	"name": "Properties Folder",
+	"version": "1.0.0",
+	"minAppVersion": "0.15.0",
+	"description": "This plugin will make properties folded by default.",
+	"author": "tdaron",
+	"authorUrl": "https://theo.daron.be",
+	"isDesktopOnly": false
+}
